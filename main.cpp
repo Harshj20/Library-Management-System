@@ -14,11 +14,18 @@ struct user{
     char password[20];
     int fine_amount;
     list<string> books;
+    struct user*next;
 };
 struct book{
     string bName;
     struct user*ptr;
 };
+
+struct user*makeNode(struct user a){
+    struct user*ptr = (struct user)*calloc(1, sizeof(struct user));
+    strcpy(ptr->name, a.name);
+    strcpy(ptr->password, a.password);
+}
 
 bool check(string id)
 {
